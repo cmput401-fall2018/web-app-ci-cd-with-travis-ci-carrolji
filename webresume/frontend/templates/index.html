@@ -2,40 +2,67 @@
 
 <html lang="en">
 <head>
+  <title>401 A3</title>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+  .bg {
+      background-color: #283747; /* Green */
+      color: #ffffff;
 
-  <title>Insert Title Here</title>
+  }
+  .container-fluid {
+    padding-top: 100px;
+    font-size: 60px;
 
-
-  <!-- <link rel="stylesheet" href="style.css"> -->
-
+  }
+  .container-fluid2 {
+    font-size: 20px;
+    color: #F2F3F4;
+  }
+  .header{
+    font-size: 15px;
+    padding-top: 15px;
+    color: #66A5AD;
+  }
+  </style>
 </head>
 
-<body>
-  <h1 id="name">aame</h1>
-  <p id="about">About</p>
-  <p id="education">Education</p>
-  <p id="skills">Skills</p>
-  <p id="work">Work</p>
-  <p id="contact">Contact</p>
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-  <script>
-  $(window).on('load', function(){
-     // change the URL to your server URL here
-     $.getJSON("http://127.0.0.1:8000/api/person/1/", function (data) {
-          $("#name").text(data.data.attributes.name);
-          $("#about").text(data.data.attributes.about);
-          $("#education").text(data.data.attributes.education);
-          $("#skills").text(data.data.attributes.skills);
-          $("#work").text(data.data.attributes.work);
-          $("#contact").text(data.data.attributes.contact);
-          // Complete consuming the API data and updating the work and contact sections
-          // HINT: look at the above lines, jquery documentation, see what is the object returned
+<body class="bg">
+    <div class = "container-fluid text-center">
+      <p id="name">Name</p>
+    </div>
+    <div class = "container-fluid2 text-center">
+      <p class="header"> - About me -</p>
+      <p id="about">About</p>
+      <p class="header">- Education - </p>
+      <p id="education">Education</p>
+      <p class="header">- Skills -</p>
+      <p id="skills">Skills</p>
+      <p class="header"> - Work Experience - </p>
+      <p id="work">Work</p>
+      <p class="header">- Contact -</p>
+      <p id="contact">Contact</p>
+    </div>
+      <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+      <script>
+      $(window).on('load', function(){
+         // change the URL to your server URL here
+         $.getJSON("http://127.0.0.1:8000/api/person/1/", function (data) {
+              $("#name").text(data.data.attributes.name);
+              $("#about").text(data.data.attributes.about);
+              $("#education").text(data.data.attributes.education);
+              $("#skills").text(data.data.attributes.skills);
+              $("#work").text(data.data.attributes.work);
+              $("#contact").text(data.data.attributes.contact);
+              // Complete consuming the API data and updating the work and contact sections
+              // HINT: look at the above lines, jquery documentation, see what is the object returned
 
-
-
-     });
-  });
-  </script>
+         });
+      });
+      </script>
 </body>
 </html>
