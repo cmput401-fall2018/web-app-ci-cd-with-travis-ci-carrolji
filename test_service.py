@@ -45,8 +45,35 @@ def test_abs_plus():
 
     assert service.abs_plus(1) == 2
 
-# @patch('service.Service.bad_random')
-# @patch('service.Service.divide')
-# def test_complicated_function():
-#     service = Service()
-#     print("function4")
+@patch('service.Service.bad_random')
+@patch('service.Service.divide')
+def test_complicated_function(divide, bad_random):
+    service = Service()
+
+    bad_random.return_value = 8
+    divide.return_value = 4
+
+    assert service.complicated_function(2)[0] == 4
+    assert service.complicated_function(2)[1] == 0
+
+    bad_random.return_value = 0
+    divide.return_value = 0
+
+    assert service.complicated_function(2)[0] == 0
+    assert service.complicated_function(2)[1] == 0
+
+    bad_random.return_value = -4
+    divide.return_value = -2
+
+    assert service.complicated_function(2)[0] == -2
+    assert service.complicated_function(2)[1] == 0
+
+    bad_random.return_value = 5
+    divide.return_value = 1
+
+    assert service.complicated_function(5)[0] == 1
+    assert service.complicated_function(5)[1] == 1
+
+
+
+
